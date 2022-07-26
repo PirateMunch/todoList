@@ -4,6 +4,10 @@ Todo List Project - The Odin Project
 
 
 
+Github live preview : https://piratemunch.github.io/todoList/
+
+Github Repos link : https://github.com/PirateMunch/todoList.git
+
 --- Git livepreview not finding your index.HTML when using webpack or React ---
 Leant to fix webpack build uploading to Github and deploying live preview page. Took awhile trying 7-8 options from stack overflow. the final solution was half of @Kurt Peek's solution.
 
