@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&family=Nunito+Sans&family=Pridi:wght@200&display=swap');
+
+:root {
+    --font-headMain: 'Gentium Book Basic', serif;
+    --font-headSub: 'Nunito Sans', sans-serif;
+    --font-regular: 'Pridi', serif;
+    --bg-rad-kale:  radial-gradient(circle, rgba(0,201,255,0.3) 0%, rgba(146,254,157,0.3) 100%);
+    --bg-rad-retro: radial-gradient(circle, rgba(34,193,195,0.6) 0%, rgba(253,187,45,0.6) 100%);
+    --bg-rad-cucumb: radial-gradient(circle, rgb(217, 231, 255, 0.9) 0%, rgb(227, 255, 231, 0.9) 100%);
+    --bg-linG-kale: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+    --bg-linG-cucumb: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    --bg-linG-retro: linear-gradient(90deg, rgba(253, 187, 45, .4) 0%, rgba(34, 193, 195, .4) 100%);
+    --color-blueKale:  #00C9FF;
+    --color-greenKale: #92FE9D;
+    --color-greenCucumb: #e3ffe7;
+    --color-blueCucumb: #d9e7ff;
+    --color-blueRetro: #22C1C3;
+    --color-orangeRetro: #FDBB2D;
+}
+
+body {
+    margin: 1rem;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--bg-rad-cucumb);
+}
+/* Header/nav styles */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2.5rem;
+    background: var(--bg-rad-kale);
+    min-height: 10rem;
+    max-height: 20rem;
+    font-family: var(--font-headMain);
+    border-radius: 3rem;
+
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    align-self: center;
+}
+
+nav > input {
+    color: red;
+    font-family: var(--font-headSub);
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+}
