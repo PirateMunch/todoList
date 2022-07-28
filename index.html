@@ -5,27 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>toDo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="./root/main.js"></script>
 </head>
 <body>
     <header>
         <div class="headerDiv">
-            To-Do List
-            <nav>
-                <input type="button" id="homeButton" class="homeButton" value="Home">
-                <input type="button" id="firstButton" class="firstButton" value="First">
-                <input type="button" id="secondButton" class="secondButton" value="Second">
-                <input type="button" id="thirdButton" class="thirdButton" value="Third">
+            <span>To-Do List</span>
+            <div class="subHead">
+            <input type="search" id="searchBar" class="searchBar" placeholder="Search Projects" >
+            <nav class="topnav">
+                <a href="#home" class="active">Home</a>
+                <!-- Navigation links (hidden by default) -->
+                <div id="burgerLinks">
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a id="burger" class="burgerIcon">
+                <i class="fa fa-bars"></i>
+                </a>
             </nav>
+            </div>
         </div>
     </header>
+
     <main>
         <section id="projectSection"></section>
     </main>
     <footer>
         <div class="footInfo">
-            Neal Wilson - To-Do List - Odin Project 
+            Neal Wilson, To-Do List, Odin Project 
         </div>
         <input type="button" id="addTaskButton" class="addTaskButton" value="+">
     </footer>

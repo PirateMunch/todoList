@@ -1,33 +1,42 @@
 //Main default display function
 export default function defaultDisplay (project) {
     const projectSection = document.getElementById('projectSection');
-    const projectDiv = document.createElement('div');
+    const projectDiv = document.createElement('ul');
     projectDiv.className = "projectDiv";
     projectSection.appendChild(projectDiv);
 
-    const projectTitle = document.createElement('ul');
+    const projectTitle = document.createElement('li');
     projectTitle.className = "projectTitle";
-    projectTitle.innerText = "Hmmmmmmmmmm";
+    projectTitle.innerText = `>>> ${project.title}+dateed`;
     projectDiv.appendChild(projectTitle);
     
-    const listTitle = document.createElement('li');
-    listTitle.className = "listTitle";
-    listTitle.innerText = `${project.title}`
-    projectTitle.appendChild(listTitle);
-
     const listDescription = document.createElement('li');
-    listDescription.className = "listTitle";
-    listDescription.innerText = `${project.description}`
-    projectTitle.appendChild(listDescription);
+    listDescription.className = "listDescription";
+    listDescription.innerText = `Description: ${project.description}`
+    projectDiv.appendChild(listDescription);
+
+    const listStartDate = document.createElement('li');
+    listStartDate.className = "listDueDate";
+    listStartDate.innerText = `Created: ${project.startDate}`
+    projectDiv.appendChild(listStartDate);
 
     const listDueDate = document.createElement('li');
-    listDueDate.className = "listTitle";
-    listDueDate.innerText = `${project.dueDate}`
-    projectTitle.appendChild(listDueDate);
+    listDueDate.className = "listDueDate";
+    listDueDate.innerText = `Due Date: ${project.dueDate}`
+    projectDiv.appendChild(listDueDate);
 
     const listPriority = document.createElement('li');
-    listPriority.className = "listTitle";
-    listPriority.innerText = `${project.priority}`
-    projectTitle.appendChild(listPriority);
+    listPriority.className = "listPriority";
+    listPriority.innerText = `Priority: ${project.priority}`
+    projectDiv.appendChild(listPriority);
 };
 
+// element attribute builder
+
+// const buildDiv = document.createElement('div')
+// Object.assign(buildDiv, {
+//     id: "thisID",
+//     href: "https//thisurl",
+//     rel: "thisDivRel",
+
+// });

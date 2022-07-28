@@ -26,43 +26,48 @@ body {
     font-family: var(--font-regular);
 }
 /* Header/nav styles */
+
 header {
-    display: flex;
-    justify-content: center;
     font-size: 2.5rem;
     min-height: 10rem;
     font-family: var(--font-headMain);
-    background-image: url("arty1.jpg");
+    /* background-image: url("arty1.jpg");
     background-size: cover;
-    opacity: .7;
+    opacity: .7; */
 }
 
 .headerDiv {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    opacity: 1 !important;
+    margin: 0 2rem;
+}
+
+.headerDiv > span {
+    align-self: center;
+    margin: 1.5rem;
+}
+
+.subHead {
+    display: flex;
+    gap: .5rem;
+}
+
+.searchBar {
+    height: fit-content;
+    font-size: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    border-radius: 20px;
+    border-color: var(--color-blueCucumb);
+    margin-top: .4rem;
+    width: 50%;
 }
 
 nav {
     display: flex;
-    gap: 1rem;
-}
-
-nav > input {
-    font-family: var(--font-headSub);
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    border-radius: 20px;
-    background: var(--bg-color-blueKale);
-    border: inset;
-    font-weight: 900;
-}
-
-input:hover {
-    background: var(--bg-rad-retro);
-    border: 3px solid var(--color-orangeRetro)
+    flex-direction: column;
+    align-self: flex-end;
+    width: 50%;
 }
 
 /* Main body styles */
@@ -71,7 +76,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: 2rem;
+    margin: .5rem 2rem;
 }
 
 section {
@@ -85,8 +90,10 @@ section {
     background: var(--bg-rad-cucumb);
 }
 
-.projectTitle {
-    text-align: center;
+ul {
+    padding: 1rem 0.5rem 1rem 1.8rem;
+    margin: 0;
+    
 }
 
 /* --- Var() Todo here! --- */
@@ -94,6 +101,18 @@ li {
     text-align: start;
     /* list-style-type: var(--svg-listIcon); */
     list-style-type: none;
+    margin-bottom: .6rem;
+}
+
+li:first-child {
+    font-size: 1.3rem;
+    text-indent: .6rem;
+
+}
+
+li:last-child {
+    color: red;
+    margin-bottom: 0;
 }
 
 
@@ -122,3 +141,52 @@ footer {
     border: inset;
     margin-bottom: 2rem;
 }
+
+
+/* --- burger menu CSS */
+
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-color: var(--color-blueCucumb);
+    /* margin: 1rem 1rem 0 0; */
+    position: relative;
+    border-radius: 20px;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #burgerLinks {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
+    color: black;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding-left: 1.8rem;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.burgerIcon {
+    background: var(--color-greenKale);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-bottom-left-radius: 20px;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    background-color: var(--color-greenCucumb);
+    color: black;
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    background-color: var(--color-blueCucumb);
+    color: black; 
+  }
