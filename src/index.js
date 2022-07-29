@@ -1,8 +1,13 @@
-import {projectClass} from "./functionJS/functionBundle";
+import {projectClass, createProjectForm, getUserData} from "./functionJS/functionBundle";
 import {defaultDisplay, burgerMenu} from "./displayJS/displayBundle"; 
 console.log("YOOOOO")
 
 
+const addProjectButton = document.getElementById('addProjectButton');
+addProjectButton.addEventListener('click', createProjectForm);
+
+const submitButton = document.getElementById('formSubmitButton');
+submitButton.addEventListener('click', getUserData)
 //burger menu tests
 
 const burger = document.getElementById('burger');

@@ -79,10 +79,50 @@ main {
     margin: .5rem 2rem;
 }
 
+/* Form styles */
+
+.formTitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addProject {
+    width: 100%;
+    font-size: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    border-radius: 20px;
+    border-color: var(--color-blueCucumb);
+    margin-top: .4rem;
+}
+
+.addProjectButton {
+    border-radius: 20px;
+    background-color: var(--color-blueCucumb);
+    border: none;
+    font-size: 1rem;
+    padding: .5rem;
+}
+/* form input {
+
+    font-size: 1rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    border-radius: 20px;
+    border-color: var(--color-blueCucumb);
+    margin-top: .4rem;
+    width: 50%;
+} */
+
+form {
+    display: none;
+}
+
+/* Project Display cards */
+
 section {
     display: flex;
     flex-direction: column;
-
     gap: 1rem;
 }
 
@@ -138,7 +178,7 @@ footer {
     font-size: 2.5rem;
     padding: .2rem;
     background-color: var(--color-blueRetro);
-    border: inset;
+    border: none;
     margin-bottom: 2rem;
 }
 

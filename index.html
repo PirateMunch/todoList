@@ -19,7 +19,7 @@
                 <a href="#home" class="active">Home</a>
                 <!-- Navigation links (hidden by default) -->
                 <div id="burgerLinks">
-                <a href="#news">News</a>
+                <a href="#addProject" id="">Add Project</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
                 </div>
@@ -33,6 +33,22 @@
     </header>
 
     <main>
+        <div class="formTitle" id="formTitle">
+            <input type="text" id="addProject" class="addProject" placeholder="Add Project Title">
+            <input type="button" id="addProjectButton" class="addProjectButton" value="add project">
+        </div>
+        <form id="projectForm">
+            <span id="formSpan"></span>
+            <label for="addDescription">Add a short description</label>
+            <input type="text" id="addDescription" name="addDescription" placeholder="short description of project">
+            <label for="addDueDate">Add a goal date to finish</label>
+            <input type="date" id="addDueDate" name="addDueDate">
+            <label for="addPriority">Priority Level</label>
+            <input type="range" id="addPriority" name="addPriority" min="1" max="5">
+            <input type="button" id="formSubmitButton" value="create project">
+        </form>
+          
+
         <section id="projectSection"></section>
     </main>
     <footer>

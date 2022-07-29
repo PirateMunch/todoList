@@ -7,7 +7,7 @@ export default function defaultDisplay (project) {
 
     const projectTitle = document.createElement('li');
     projectTitle.className = "projectTitle";
-    projectTitle.innerText = `>>> ${project.title}+dateed`;
+    projectTitle.innerText = `${project.title}`;
     projectDiv.appendChild(projectTitle);
     
     const listDescription = document.createElement('li');
