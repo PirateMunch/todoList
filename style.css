@@ -84,12 +84,8 @@ main {
 .formTitle {
     display: flex;
     justify-content: space-between;
-    visibility: visible;
 }
 
-#hideForm {
-    display: none;
-}
 
 .addProject {
     width: 100%;
@@ -101,64 +97,39 @@ main {
     margin-top: .4rem;
 }
 
-.addProjectButton {
+button {
     border-radius: 20px;
     background-color: var(--color-blueCucumb);
     border: none;
     font-size: 1rem;
     padding: .5rem;
 }
-/* form input {
 
+/* Project Display cards */
+
+
+
+/* --- form styles --- */
+
+form>div {
+    margin-bottom: 1rem;
+}
+
+
+input {
+    height: fit-content;
     font-size: 1rem;
     padding: .5rem;
     padding-left: 1rem;
     border-radius: 20px;
     border-color: var(--color-blueCucumb);
     margin-top: .4rem;
-    width: 50%;
-} */
+    width: 90%;
+}
 
-/* Project Display cards */
-
-section {
+#formSubmitButton {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.projectDiv {
-    background: var(--bg-rad-cucumb);
-}
-
-ul {
-    padding: 1rem 0.5rem 1rem 1.8rem;
-    margin: 0;
-    
-}
-
-/* --- Var() Todo here! --- */
-li {
-    text-align: start;
-    /* list-style-type: var(--svg-listIcon); */
-    list-style-type: none;
-    margin-bottom: .6rem;
-}
-
-li:first-child {
-    font-size: 1.3rem;
-    text-indent: .6rem;
-
-}
-
-li:last-child {
-    color: red;
-    margin-bottom: 0;
-}
-
-#todoButton {
-    display: flex;
-    font-size: 2rem;
+    align-content: flex-end;
 }
 
 /* Footer styles */
