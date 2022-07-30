@@ -16,7 +16,7 @@
             <div class="subHead">
             <input type="search" id="searchBar" class="searchBar" placeholder="Search Projects" >
             <nav class="topnav">
-                <a href="#home" class="active">Home</a>
+                <a href="#home" class="active">Sort</a>
                 <!-- Navigation links (hidden by default) -->
                 <div id="burgerLinks">
                 <a href="#addProject" id="">Add Project</a>
@@ -35,20 +35,29 @@
     <main>
         <div class="formTitle" id="formTitle">
             <input type="text" id="addProject" class="addProject" placeholder="Add Project Title">
-            <input type="button" id="addProjectButton" class="addProjectButton" value="add project">
+            <button type="button" id="addProjectButton" class="addProjectButton">add project</button>
         </div>
-        <form id="projectForm">
-            <span id="formSpan"></span>
-            <label for="addDescription">Add a short description</label>
-            <input type="text" id="addDescription" name="addDescription" placeholder="short description of project">
-            <label for="addDueDate">Add a goal date to finish</label>
-            <input type="date" id="addDueDate" name="addDueDate">
-            <label for="addPriority">Priority Level</label>
-            <input type="range" id="addPriority" name="addPriority" min="1" max="5">
-            <input type="button" id="formSubmitButton" value="create project">
-        </form>
-          
-
+        <div id="hideForm">
+            <form action="" method="" name="form" id="form">
+                <div class="title">
+                    <label for="title">title :</label>
+                    <input type="text" name="title" id="title" placeholder="title" autofocus>
+                </div>
+                <div class="description">
+                    <label for="description">description :</label>
+                    <input type="text" name="description" id="description" placeholder="description of things to do" autofocus>
+                </div>
+                <div class="dueDate">
+                    <label for="dueDate">complete by :</label>
+                    <input type="date" name="dueDate" id="dueDate">
+                </div>
+                <div class="priority">
+                    <label for="priority">priority</label>
+                    <input type="range" id="priority" class="priority" min="1" max="5" autofocus>
+                </div>
+                <button type="submit" id="formSubmitButton">add project</button>
+            </form>
+            </div>
         <section id="projectSection"></section>
     </main>
     <footer>

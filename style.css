@@ -84,6 +84,11 @@ main {
 .formTitle {
     display: flex;
     justify-content: space-between;
+    visibility: visible;
+}
+
+#hideForm {
+    display: none;
 }
 
 .addProject {
@@ -113,10 +118,6 @@ main {
     margin-top: .4rem;
     width: 50%;
 } */
-
-form {
-    display: none;
-}
 
 /* Project Display cards */
 
@@ -155,6 +156,10 @@ li:last-child {
     margin-bottom: 0;
 }
 
+#todoButton {
+    display: flex;
+    font-size: 2rem;
+}
 
 /* Footer styles */
 

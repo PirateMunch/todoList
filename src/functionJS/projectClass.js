@@ -1,5 +1,5 @@
 //Main Class for projects
-export class projectClass {
+export class ProjectClass {
     constructor(title, description, startDate, dueDate, priority) {
 
         this.title = title;
