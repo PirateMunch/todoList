@@ -16,7 +16,6 @@
     --color-blueCucumb: #d9e7ff;
     --color-blueRetro: #22C1C3;
     --color-orangeRetro: #FDBB2D;
-    --svg-listIcon: /*get list icon arrow thing */
 }
 
 body {
@@ -25,15 +24,12 @@ body {
     box-sizing: border-box;
     font-family: var(--font-regular);
 }
-/* Header/nav styles */
+/* --- Header/nav styles --- */
 
 header {
     font-size: 2.5rem;
     min-height: 10rem;
     font-family: var(--font-headMain);
-    /* background-image: url("arty1.jpg");
-    background-size: cover;
-    opacity: .7; */
 }
 
 .headerDiv {
@@ -60,7 +56,7 @@ header {
     border-radius: 20px;
     border-color: var(--color-blueCucumb);
     margin-top: .4rem;
-    width: 50%;
+    width: 100%;
 }
 
 nav {
@@ -70,7 +66,7 @@ nav {
     width: 50%;
 }
 
-/* Main body styles */
+/* --- Main body styles --- */
 
 main {
     display: flex;
@@ -79,13 +75,12 @@ main {
     margin: .5rem 2rem;
 }
 
-/* Form styles */
+/* ------------- Form styles ------------------------- */
 
 .formTitle {
     display: flex;
     justify-content: space-between;
 }
-
 
 .addProject {
     width: 100%;
@@ -101,20 +96,13 @@ button {
     border-radius: 20px;
     background-color: var(--color-blueCucumb);
     border: none;
-    font-size: 1rem;
-    padding: .5rem;
+    font-size: 1.1rem;
+    padding: .5rem 1.5rem;
 }
-
-/* Project Display cards */
-
-
-
-/* --- form styles --- */
 
 form>div {
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
 }
-
 
 input {
     height: fit-content;
@@ -127,9 +115,114 @@ input {
     width: 90%;
 }
 
-#formSubmitButton {
+.dueDateInput {
+    text-align: center;
+}
+
+.priorityContainer {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.priorityDiv {
     display: flex;
-    align-content: flex-end;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 0;
+}
+
+.priorityRange {
+    width: 50%;
+}
+
+.submitButtonDiv {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* -------------- Project Display cards ------------ */
+
+.projectName {
+    font-size: 1.8rem;
+    font-family: var(--font-headSub);
+    
+}
+
+.projectHead {
+    position: relative;
+    padding: .5rem 0;
+}
+
+.startDate {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: .9rem;
+    text-align: center;
+    line-height: 1.1;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0rem .5rem 1rem 1.2rem;
+}
+
+.todoDiv {
+    display: flex;
+    justify-content: center;
+    padding: .5rem 0;
+}
+
+.lowP {
+    background-color: var(--color-greenCucumb);
+    border-radius: 20px;
+}
+
+.midP {
+    background-color: var(--color-blueCucumb);
+    border-radius: 20px;
+}
+
+.highP {
+    background-color: rgba(204, 6, 15, 0.3);
+    border-radius: 20px;
+}
+
+.todoDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0rem .5rem;
+}
+
+.listInput {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.todoButton {
+    background-color: white;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.projectFoot {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.deleteButton {
+    background-color: var(--color-greenCucumb);
+}
+
+.returnList {
+    width: 50%;
+}
+
+.deleteButton>img {
+    width: 1rem;
 }
 
 /* Footer styles */
@@ -178,7 +271,7 @@ footer {
   /* Style navigation menu links */
   .topnav a {
     color: black;
-    padding: 14px 16px;
+    padding: .5rem 1rem;
     text-decoration: none;
     font-size: 1.1rem;
     display: block;

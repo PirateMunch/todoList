@@ -2,64 +2,117 @@
 export default function defaultDisplay (project) {
     const projectSection = document.getElementById('projectSection');
     const projectDiv = document.createElement('div');
-    projectDiv.className = "projectDiv";
+    projectDiv.id = "projectDiv";
     projectSection.appendChild(projectDiv);
 
     const projectTitle = document.createElement('ul');
     projectTitle.className = "projectTitle";
     projectTitle.id = "projectTitle";
-    projectTitle.innerText = `${project.title}`;
     projectDiv.appendChild(projectTitle);
+
+    const projectHead = document.createElement('div');
+    projectHead.className = "projectHead";
+    projectTitle.appendChild(projectHead);
+
+    const projectName = document.createElement('div');
+    projectName.className = "projectName";
+    projectName.textContent = `${project.title}`
+    projectHead.appendChild(projectName);
     
-    const listDescription = document.createElement('li');
+    const listDescription = document.createElement('div');
     listDescription.className = "listDescription";
-    listDescription.innerText = `Description: ${project.description}`
+    listDescription.innerText = `${project.description}`
     projectTitle.appendChild(listDescription);
 
-    const listStartDate = document.createElement('li');
-    listStartDate.className = "listDueDate";
-    listStartDate.innerText = `Created: ${project.startDate}`
-    projectTitle.appendChild(listStartDate);
+    const listStartDate = document.createElement('div');
+    listStartDate.className = "startDate";
+    listStartDate.innerText = `started
+    ${project.startDate}`;
+    projectHead.appendChild(listStartDate);
 
-    const listDueDate = document.createElement('li');
+    const listDueDate = document.createElement('div');
     listDueDate.className = "listDueDate";
-    listDueDate.innerText = `Due Date: ${project.dueDate}`
+    listDueDate.innerText = `Finish by : ${project.dueDate}`
     projectTitle.appendChild(listDueDate);
 
-    const listPriority = document.createElement('li');
-    listPriority.className = "listPriority";
-    listPriority.innerText = `Priority: ${project.priority}`
-    projectTitle.appendChild(listPriority);
+    const levelPriority = project.priority
+    switch (levelPriority) {
+        case '1':
+            projectDiv.className = "lowP";
+            break;
+        case '2':
+            projectDiv.className = "midP";
+            break;
+        case '3':
+            projectDiv.className = "highP";
+            break;
+    };
 
+    const todoList = document.createElement('ul');
+    todoList.id = `${project.title}`;
+    todoList.className = "todoList"
+    todoList.textContent = "To-Do List"
+    projectTitle.appendChild(todoList);
+
+    const todoDiv = document.createElement('div')
+    todoDiv.className = "todoDiv";
+    projectDiv.appendChild(todoDiv);
+
+    //List input box
+    const listInput = document.createElement('input');
+    listInput.type = "text";
+    listInput.className = "listInput";
+    listInput.id = `${project.title+10}`
+    listInput.placeholder = "add to list"
+    todoDiv.appendChild(listInput);
+
+    //Add to list Button 
     const todoButton = document.createElement('button');
-    todoButton.id = "todoButton"
-    todoButton.textContent = `${project.title} To-Do List`;
-    projectDiv.appendChild(todoButton);
-
+    todoButton.id = "todoButton";
+    todoButton.className = "todoButton";
+    todoButton.dataset.index = `${project.title}`
+    todoButton.textContent = `add`;
+    todoDiv.appendChild(todoButton);
+    //Add Button Event Listener here
     todoButton.addEventListener('click', () => {
-        projectTitle.style.display = "none";
-        toggleList()
+        addToList(project)
+        listInput.value = "";
     })
+
+    const projectFoot = document.createElement('div');
+    projectFoot.className = "projectFoot"
+    projectDiv.appendChild(projectFoot);
+
+    //Home Button here
+    const returnList = document.createElement('input');
+    returnList.type = "button";
+    returnList.className = "returnList";
+    returnList.value = "Home";
+    projectFoot.appendChild(returnList);
+
+    //Delete button logic and create --
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "deleteButton";
+    deleteButton.dataset.delete = "delete";
+    deleteButton.id = `${project.index}`
+    const deleteImg = '<img src="delete1.svg">';
+    deleteButton.innerHTML = deleteImg;
+    projectFoot.appendChild(deleteButton);
+    //EventListener for delete buttons.
+    const deleteButtons = document.querySelectorAll('button[data-delete]');
+        for(const deleteButton of deleteButtons) {
+        deleteButton.addEventListener('click', deleteBook)
+        };
 };
 
-function toggleList () {
-    const projectSection = document.getElementById('projectSection');
-    const list = document.createElement('div');
-    projectSection.appendChild(list);
+function addToList (project) {
+    const thisItem = document.getElementById(`${project.title+10}`);
+    const thisList = document.getElementById(`${project.title}`);
+    const newItem = document.createElement('li');
+    newItem.textContent = thisItem.value;
+    thisList.appendChild(newItem);
+    console.log(thisItem.value);
     
-    const itemInput = document.createElement('input');
-    itemInput.type = "text";
-    itemInput.className = "itemInput";
-    itemInput.placeholder = "add list item";
-    list.appendChild(itemInput);
-
-    const newItemButton = document.createElement('button');
-    newItemButton.textContent = "add new stp to list";
-    list.appendChild(newItemButton);
-    newItemButton.addEventListener('click', () => {
-       const addItem = document.createElement('li');
-       addItem.textContent = itemInput.value;
-       list.appendChild(addItem);
-    })
 
 };
+ 

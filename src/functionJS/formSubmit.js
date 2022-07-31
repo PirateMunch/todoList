@@ -1,44 +1,42 @@
 import { ProjectClass } from "./projectClass";
 import defaultDisplay from "../displayJS/defaultDisplay";
+import { remakeAddButton } from "../displayJS/buildForm";
 
-
-
-const userTitle = document.getElementById('title');
-const userDescription = document.getElementById('description');
-const userDueDate = document.getElementById('dueDate');
-const userPriority = document.getElementById('priority');
-
-
-function getUserData () {
+function formSubmit () {
+    const projectButton = document.getElementById('addProjectButton');
+    const section = document.getElementById('projectSection');
+    const userTitle = document.getElementById('title');
+    const userDescription = document.getElementById('description');
+    const userDueDate = document.getElementById('dueDateInput');
+    const userPriority = document.getElementById('priorityRange');
     let title = userTitle.value;
     let description = userDescription.value;
-    let startDate = Date();
+    let startDate = formatDate(new Date());
     let dueDate = userDueDate.value;
     let priority = userPriority.value;
-    const thisProject = new ProjectClass (title, description, startDate, dueDate, priority)
+    let index = `${new Date() + title}`
+    let list = [];
+    const thisProject = new ProjectClass (title, description, startDate, dueDate, priority, index, list)
     //hide form on submit
-    document.getElementById("hideForm").style.display = "none"
-    document.getElementById("addProjectButton").innerText = "add project"
-    defaultDisplay(thisProject);
-    document.getElementById("form").reset();
-    
+
+    projectButton.textContent ? "cancel" : "add project";
+    section.replaceChildren();
+    defaultDisplay(thisProject)
+    remakeAddButton();
 };
 
-function createProjectForm() {
-    //(Add New Project) get form button
-    const newForm = document.getElementById("hideForm");
-    const displaySetting = newForm.style.display;
-    const addButton = document.getElementById("addProjectButton");
-    if(displaySetting !== 'flex') {
-        newForm.style.display ='flex';
-        addButton.textContent = "cancel"
-        const submitButton = document.getElementById('formSubmitButton');
-        submitButton.addEventListener('click', getUserData);
-    };
+function padDigit(num) {
+    return num.toString().padStart(2, '0');
+}
 
-  };
+function formatDate (date) {
+    return [
+        padDigit(date.getDate()),
+        padDigit(date.getMonth() +1),
+        date.getFullYear(),
+    ].join('/')
+};
 
 export {
-    getUserData,
-    createProjectForm
+    formSubmit,
 };
