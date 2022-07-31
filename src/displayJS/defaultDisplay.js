@@ -1,3 +1,5 @@
+import { projectArray } from "../functionJS/projectArray";
+
 //Main default display function
 export default function defaultDisplay (project) {
     const projectSection = document.getElementById('projectSection');
@@ -31,6 +33,7 @@ export default function defaultDisplay (project) {
     projectHead.appendChild(listStartDate);
 
     const listDueDate = document.createElement('div');
+    listDueDate.id = "listDueDate";
     listDueDate.className = "listDueDate";
     listDueDate.innerText = `Finish by : ${project.dueDate}`
     projectTitle.appendChild(listDueDate);
@@ -52,6 +55,8 @@ export default function defaultDisplay (project) {
     todoList.id = `${project.title}`;
     todoList.className = "todoList"
     todoList.textContent = "To-Do List"
+    todoList.style.fontSize = "1.5rem"
+    todoList.style.fontWeight = "700"
     projectTitle.appendChild(todoList);
 
     const todoDiv = document.createElement('div')
@@ -84,11 +89,15 @@ export default function defaultDisplay (project) {
     projectDiv.appendChild(projectFoot);
 
     //Home Button here
-    const returnList = document.createElement('input');
-    returnList.type = "button";
-    returnList.className = "returnList";
-    returnList.value = "Home";
-    projectFoot.appendChild(returnList);
+    const returnListButton = document.createElement('input');
+    returnListButton.type = "button";
+    returnListButton.className = "returnList";
+    returnListButton.value = "Home";
+    projectFoot.appendChild(returnListButton);
+    //EventListener for Home Button
+    returnListButton.addEventListener('click', () => {
+        console.log(projectArray)
+    });
 
     //Delete button logic and create --
     const deleteButton = document.createElement("button");
@@ -112,7 +121,5 @@ function addToList (project) {
     newItem.textContent = thisItem.value;
     thisList.appendChild(newItem);
     console.log(thisItem.value);
-    
-
 };
  

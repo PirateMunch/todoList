@@ -10,8 +10,6 @@ export class ProjectClass {
         this.index = index;
         this.list = list;
 
-
-
         return { title, description, startDate, dueDate, priority, index, list };
     };
 };

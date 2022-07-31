@@ -1,7 +1,7 @@
 import { ProjectClass } from "./projectClass";
 import defaultDisplay from "../displayJS/defaultDisplay";
 import { remakeAddButton } from "../displayJS/buildForm";
-
+import { projectArray } from "./projectArray";
 function formSubmit () {
     const projectButton = document.getElementById('addProjectButton');
     const section = document.getElementById('projectSection');
@@ -16,13 +16,14 @@ function formSubmit () {
     let priority = userPriority.value;
     let index = `${new Date() + title}`
     let list = [];
-    const thisProject = new ProjectClass (title, description, startDate, dueDate, priority, index, list)
+    const thisProject = new ProjectClass (title, description, startDate, dueDate, priority, index, list);
     //hide form on submit
-
-    projectButton.textContent ? "cancel" : "add project";
+    projectArray.push(thisProject);
+    projectButton.textContent = "add project";
     section.replaceChildren();
-    defaultDisplay(thisProject)
+    defaultDisplay(thisProject);
     remakeAddButton();
+    return projectArray;
 };
 
 function padDigit(num) {
@@ -34,9 +35,10 @@ function formatDate (date) {
         padDigit(date.getDate()),
         padDigit(date.getMonth() +1),
         date.getFullYear(),
-    ].join('/')
+    ].join('-')
 };
 
 export {
     formSubmit,
+
 };

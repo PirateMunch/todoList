@@ -46,11 +46,40 @@ function newForm() {
     const dueDateDiv = document.createElement('div');
     dueDateDiv.className = "dueDateDiv";
     form.appendChild(dueDateDiv);
+    const labelDueDate = document.createElement('label');
+    labelDueDate.textContent = "Your ideal completion date :";
+    dueDateDiv.appendChild(labelDueDate);
     const dueDateInput = document.createElement('input');
     dueDateInput.type = "date";
     dueDateInput.id = "dueDateInput";
     dueDateInput.className = "dueDateInput";
     dueDateDiv.appendChild(dueDateInput);
+
+    const listContainer = document.createElement('div');
+    listContainer.className = "listContainer";
+    form.appendChild(listContainer);
+
+    //List input box
+    const thisIndex = new Date()
+    const listInput = document.createElement('input');
+    listInput.type = "text";
+    listInput.className = "listInput";
+    listInput.id = `${thisIndex}`
+    listInput.placeholder = "Add your first To-Do list";
+    listContainer.appendChild(listInput);
+
+    //Add to list Button 
+    const todoButton = document.createElement('button');
+    todoButton.id = "todoButton1";
+    todoButton.className = "todoButton";
+    todoButton.dataset.index = `${thisIndex}`
+    todoButton.textContent = `add`;
+    listContainer.appendChild(todoButton);
+    //Add Button Event Listener here
+    todoButton.addEventListener('click', () => {
+        addToList(project)
+        listInput.value = "";
+    })
 
     const priorityContainer = document.createElement('div');
     priorityContainer.className = "priorityContainer";

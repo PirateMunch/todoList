@@ -119,6 +119,10 @@ input {
     text-align: center;
 }
 
+.listContainer {
+    display: flex;
+}
+
 .priorityContainer {
     text-align: center;
     margin-bottom: 0;
@@ -145,7 +149,7 @@ input {
 .projectName {
     font-size: 1.8rem;
     font-family: var(--font-headSub);
-    
+    margin-left: 1rem;
 }
 
 .projectHead {
@@ -166,6 +170,12 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0rem .5rem 1rem 1.2rem;
+}
+
+.listDescription {
+    display: flex;
+    justify-content: center;
+    overflow:scroll;
 }
 
 .todoDiv {
@@ -189,7 +199,7 @@ ul {
     border-radius: 20px;
 }
 
-.todoDiv {
+.todoDiv, .listContainer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -205,6 +215,17 @@ ul {
     background-color: white;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+#todoButton1 {
+    background-color: var(--color-blueCucumb);
+    border: 1px solid var(--color-blueCucumb);
+}
+
+.todoList>li {
+    list-style-type:circle;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .projectFoot {
