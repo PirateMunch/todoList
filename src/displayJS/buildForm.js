@@ -1,7 +1,13 @@
 import { formSubmit } from "../functionJS/formSubmit";
 
 export default function buildForm () {
-
+    if (localStorage.getItem('projects') === null) {
+        let cats = [];
+        localStorage.setItem('projects', JSON.stringify(cats))
+        console.log("makeCat")
+    } else {
+        console.log("duno")
+    }
     const submitButton = newForm();
     submitButton.addEventListener('click', formSubmit)
 
@@ -9,12 +15,13 @@ export default function buildForm () {
     projectButton.textContent = "cancel form"
     projectButton.addEventListener('click', () => {
     const projectSection = document.getElementById('projectSection');
-    projectSection.replaceChildren();
+
     remakeAddButton();
     })
 };
 
 function newForm() {
+        deleteSectionChildren();
     const projectSection = document.getElementById('projectSection');
     const formDiv = document.createElement('div');
     formDiv.className = "formDiv";
@@ -77,8 +84,9 @@ function newForm() {
     listContainer.appendChild(todoButton);
     //Add Button Event Listener here
     todoButton.addEventListener('click', () => {
-        addToList(project)
-        listInput.value = "";
+
+        // addToList(project)
+        // listInput.value = "";
     })
 
     const priorityContainer = document.createElement('div');
@@ -126,4 +134,13 @@ export function remakeAddButton () {
     const projectButton = document.getElementById('addProjectButton');
     projectButton.textContent = "add project";
     projectButton.addEventListener('click', buildForm, {once:true});
+};
+
+export function deleteSectionChildren () {
+    const section = document.getElementById('projectSection');
+    let child = section.lastElementChild;
+    while (child) {
+        section.removeChild(child);
+        child = section.lastElementChild;
+    }
 };

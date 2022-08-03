@@ -1,5 +1,5 @@
 import { projectArray } from "../functionJS/projectArray";
-
+import homeDisplay from "./homeDisplay";
 //Main default display function
 export default function defaultDisplay (project) {
     const projectSection = document.getElementById('projectSection');
@@ -96,7 +96,7 @@ export default function defaultDisplay (project) {
     projectFoot.appendChild(returnListButton);
     //EventListener for Home Button
     returnListButton.addEventListener('click', () => {
-        console.log(projectArray)
+        homeDisplay();
     });
 
     //Delete button logic and create --
@@ -123,3 +123,6 @@ function addToList (project) {
     console.log(thisItem.value);
 };
  
+function deleteBook () {
+    localStorage.clear();
+}
