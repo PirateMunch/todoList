@@ -1,5 +1,8 @@
 import { formSubmit } from "../functionJS/formSubmit";
 import homeDisplay from "./homeDisplay";
+import { addToList } from "./defaultDisplay";
+import getSetLocal from "../functionJS/localStore";
+
 
 export default function buildForm () {
     if (localStorage.getItem('projects') === null) {
@@ -80,15 +83,12 @@ function newForm() {
     const todoButton = document.createElement('button');
     todoButton.id = "todoButton1";
     todoButton.className = "todoButton";
+    todoButton.type = "button";
     todoButton.dataset.index = `${thisIndex}`
     todoButton.textContent = `add`;
     listContainer.appendChild(todoButton);
-    //Add Button Event Listener here
-    todoButton.addEventListener('click', () => {
-
-        // addToList(project)
-        // listInput.value = "";
-    })
+    // Add Button Event Listener here
+    // todoButton.addEventListener('click', updateList)
 
     const priorityContainer = document.createElement('div');
     priorityContainer.className = "priorityContainer";

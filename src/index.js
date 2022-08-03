@@ -1,5 +1,5 @@
-import {ProjectClass, createProjectForm, formSubmit} from "./functionJS/functionBundle";
-import {defaultDisplay, burgerMenu, buildForm} from "./displayJS/displayBundle"; 
+
+import buildForm from "./displayJS/buildForm";
 import homeDisplay from "./displayJS/homeDisplay";
 
 

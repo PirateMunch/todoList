@@ -1,7 +1,5 @@
 import getSetLocal from "../functionJS/localStore";
-import { projectArray } from "../functionJS/projectArray";
-import { deleteSectionChildren } from "./buildForm";
-import homeDisplay from "./homeDisplay";
+
 //Main default display function
 export default function defaultDisplay (project) {
     const projectSection = document.getElementById('projectSection');
@@ -56,6 +54,8 @@ export default function defaultDisplay (project) {
     todoList.style.fontWeight = "700"
     projectTitle.appendChild(todoList);   
 
+    // showList(project);
+
     const levelPriority = project.priority
     switch (levelPriority) {
         case '1':
@@ -85,13 +85,15 @@ export default function defaultDisplay (project) {
     const todoButton = document.createElement('button');
     todoButton.id = "todoButton";
     todoButton.className = "todoButton";
+    todoButton.type = "button";
     todoButton.dataset.index = `${project.title}`
     todoButton.textContent = `add`;
     todoDiv.appendChild(todoButton);
-    //Add Button Event Listener here
+    // Add Button Event Listener here
     todoButton.addEventListener('click', () => {
         addToList(project)
         listInput.value = "";
+        getSetLocal();
     })
 
     const projectFoot = document.createElement('div');
@@ -106,8 +108,8 @@ export default function defaultDisplay (project) {
     projectFoot.appendChild(returnListButton);
     //EventListener for Home Button
     returnListButton.addEventListener('click', () => {
-        deleteSectionChildren();
-        homeDisplay();
+        //not needed now so test here
+        console.log("somin")
     });
 
     //Delete button logic and create --
@@ -121,7 +123,7 @@ export default function defaultDisplay (project) {
     //EventListener for delete buttons.
     const deleteButtons = document.querySelectorAll('button[data-delete]');
         for(const deleteButton of deleteButtons) {
-        deleteButton.addEventListener('click', deleteBook)
+        // deleteButton.addEventListener('click', deleteBook)
         };
 };
 
@@ -135,7 +137,7 @@ function toggleProjectDisplay () {
     };
 
 
-function addToList (project) {
+export function addToList (project) {
     const thisItem = document.getElementById(`${project.title+10}`);
     const thisList = document.getElementById(`${project.title}`);
     const newItem = document.createElement('li');
@@ -143,20 +145,22 @@ function addToList (project) {
     newItem.textContent = thisItem.value;
     thisList.appendChild(newItem);
     projectList.push(newItem);
-    // getSetLocal();
+    
     console.log(project.list);
 };
 
 function showList (project) {
     const list = project.list;
+    const thisList = document.getElementById(`${project.title}`);
     let newItem = document.createElement('li');
     if (list.lentgh !== 0) {
         list.forEach(element => {
-            
-
-        
-    });
-}
+            newItem.textContent = element;
+            thisList.appendChild(newItem);
+            list.push(newItem);
+         });
+    }
+};
  
 // function deleteBook () {
 //     localStorage.clear();
