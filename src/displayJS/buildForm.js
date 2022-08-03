@@ -1,4 +1,5 @@
 import { formSubmit } from "../functionJS/formSubmit";
+import homeDisplay from "./homeDisplay";
 
 export default function buildForm () {
     if (localStorage.getItem('projects') === null) {
@@ -14,14 +15,14 @@ export default function buildForm () {
     const projectButton = document.getElementById('addProjectButton');
     projectButton.textContent = "cancel form"
     projectButton.addEventListener('click', () => {
-    const projectSection = document.getElementById('projectSection');
-
+    deleteSectionChildren();
+    homeDisplay();
     remakeAddButton();
     })
 };
 
 function newForm() {
-        deleteSectionChildren();
+    deleteSectionChildren();
     const projectSection = document.getElementById('projectSection');
     const formDiv = document.createElement('div');
     formDiv.className = "formDiv";

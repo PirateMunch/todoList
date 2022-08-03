@@ -146,6 +146,10 @@ input {
 
 /* -------------- Project Display cards ------------ */
 
+.hiddenDiv {
+    display: none;
+}
+
 .projectName {
     font-size: 1.8rem;
     font-family: var(--font-headSub);
@@ -250,6 +254,12 @@ ul {
 }
 
 /* Footer styles */
+
+.clearLocal {
+    align-self: center;
+    position: absolute;
+    bottom: 2rem;
+}
 
 footer {
     display: flex;
