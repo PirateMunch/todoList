@@ -1,4 +1,4 @@
-import getSetLocal from "../functionJS/localStore";
+import { getSetLocal, deleteProject } from "../functionJS/localStore";
 import homeDisplay from "./homeDisplay";
 import { deleteSectionChildren } from "./buildForm";
 
@@ -99,14 +99,14 @@ export default function projectCardDisplay (project) {
     projectFoot.className = "projectFoot"
     hiddenDiv.appendChild(projectFoot);
 
-    //Home Button here
-    const returnListButton = document.createElement('input');
-    returnListButton.type = "button";
-    returnListButton.className = "returnList";
-    returnListButton.value = "Home";
-    projectFoot.appendChild(returnListButton);
+    //Priority Button here
+    const priorityButton = document.createElement('input');
+    priorityButton.type = "button";
+    priorityButton.className = "priorityButton";
+    priorityButton.value = "Change priority";
+    projectFoot.appendChild(priorityButton);
     //EventListener for Home Button
-    returnListButton.addEventListener('click', () => {
+    priorityButton.addEventListener('click', () => {
         //not needed now so test here
         // updateList(project);
         
@@ -153,19 +153,6 @@ function addToList (project) {
     newItem.appendChild(deleteItem);
     projectList.push(newItem.textContent);
     getSetLocal(project)
-};
-
-function deleteProject (project) {
-    let currentStorage = JSON.parse(localStorage.getItem('projects'));
-        currentStorage.forEach((element) => {
-            if (element.title === project.title) {
-                let index = currentStorage.indexOf(element)
-                if (index > -1) {
-                    currentStorage.splice(index, 1)
-                }; 
-            } 
-        });
-    localStorage.setItem('projects', JSON.stringify(currentStorage));
 };
 
 function showList (project) {

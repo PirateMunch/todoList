@@ -13,4 +13,15 @@ export default function getSetLocal (thisProject) {
     localStorage.setItem('projects', JSON.stringify(currentStorage));
 };
 
-export let projectArray = [];
+export function deleteProject (project) {
+    let currentStorage = JSON.parse(localStorage.getItem('projects'));
+        currentStorage.forEach((element) => {
+            if (element.title === project.title) {
+                let index = currentStorage.indexOf(element)
+                if (index > -1) {
+                    currentStorage.splice(index, 1)
+                }; 
+            } 
+        });
+    localStorage.setItem('projects', JSON.stringify(currentStorage));
+};

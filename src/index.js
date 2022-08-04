@@ -1,6 +1,7 @@
 
 import buildForm from "./displayJS/buildForm";
 import homeDisplay from "./displayJS/homeDisplay";
+import landingPage from "./displayJS/landingPage";
 
 
 const addProjectButton = document.getElementById('addProjectButton');
@@ -17,4 +18,4 @@ clearLocal.addEventListener('click', () => {
 const burger = document.getElementById('burger');
 burger.addEventListener('click', homeDisplay); 
 
-window.onload = homeDisplay();
+window.onload = landingPage();

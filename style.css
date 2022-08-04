@@ -75,6 +75,15 @@ main {
     margin: .5rem 2rem;
 }
 
+.startPage {
+    font-size: 1.5rem;
+    white-space: pre-wrap;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    font-weight: 570;
+}
+
 /* ------------- Form styles ------------------------- */
 
 .formTitle {
@@ -179,7 +188,7 @@ ul {
 .listDescription {
     display: flex;
     justify-content: center;
-    overflow:scroll;
+    /* overflow:scroll; */
 }
 
 .todoDiv {
@@ -229,6 +238,10 @@ ul {
     border: 1px solid var(--color-blueCucumb);
 }
 
+.todoList {
+    margin-top: 1rem;
+}
+
 .todoList>li {
     position: relative;
     list-style-type:circle;
@@ -265,11 +278,21 @@ ul {
     width: 1.8rem;
 }
 
+.priorityButton {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    padding: .5rem 1.5rem;
+    background-color: white;
+    margin-left: .1rem;
+}
+
 /* Footer styles */
 
 .clearLocal {
     align-self: center;
     bottom: 2rem;
+    margin-top: 2rem;
 }
 
 footer {
