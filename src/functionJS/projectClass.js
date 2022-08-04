@@ -13,4 +13,3 @@ export class ProjectClass {
         return { title, description, startDate, dueDate, priority, index, list };
     };
 };
-

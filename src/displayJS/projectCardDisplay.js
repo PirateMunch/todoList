@@ -2,8 +2,8 @@ import getSetLocal from "../functionJS/localStore";
 import homeDisplay from "./homeDisplay";
 import { deleteSectionChildren } from "./buildForm";
 
-//Main default display function
-export default function defaultDisplay (project) {
+//Main projectCard display function
+export default function projectCardDisplay (project) {
     const projectSection = document.getElementById('projectSection');
     const projectDiv = document.createElement('div');
     projectDiv.id = `${project.index}`;
@@ -55,7 +55,6 @@ export default function defaultDisplay (project) {
     todoList.style.fontSize = "1.5rem"
     todoList.style.fontWeight = "700"
     projectTitle.appendChild(todoList);   
-
     showList(project)
 
     const levelPriority = project.priority
@@ -75,7 +74,6 @@ export default function defaultDisplay (project) {
     todoDiv.className = "todoDiv";
     hiddenDiv.appendChild(todoDiv);
 
-    //List input box
     const listInput = document.createElement('input');
     listInput.type = "text";
     listInput.className = "listInput";
@@ -139,13 +137,20 @@ function toggleProjectDisplay () {
         };
     };
 
-export function addToList (project) {
+function addToList (project) {
     const thisItem = document.getElementById(`${project.title+10}`);
     const thisList = document.getElementById(`${project.title}`);
     const newItem = document.createElement('li');
     let projectList = project.list;
     newItem.textContent = thisItem.value;
+
+    const deleteItem = document.createElement('button');
+    deleteItem.type = "button";
+    deleteItem.textContent = "X";
+    deleteItem.className = "deleteItem";
+
     thisList.appendChild(newItem);
+    newItem.appendChild(deleteItem);
     projectList.push(newItem.textContent);
     getSetLocal(project)
 };
@@ -163,19 +168,18 @@ function deleteProject (project) {
     localStorage.setItem('projects', JSON.stringify(currentStorage));
 };
 
-export function showList (project) {
+function showList (project) {
     const list = project.list;
     const thisList = document.getElementById(`${project.title}`);
         list.forEach(element => {
-            let newItem = document.createElement('li');     
-            console.log(element);
+            let newItem = document.createElement('li');    
+            const deleteItem = document.createElement('button');
+            deleteItem.type = "button";
+            deleteItem.textContent = "X";
+            deleteItem.className = "deleteItem";
+            
             newItem.textContent = element;
             thisList.appendChild(newItem);
+            newItem.appendChild(deleteItem);
          });
 };
-
-
- 
-// function deleteBook () {
-//     localStorage.clear();
-// };

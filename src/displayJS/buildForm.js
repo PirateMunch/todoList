@@ -1,17 +1,12 @@
 import { formSubmit } from "../functionJS/formSubmit";
 import homeDisplay from "./homeDisplay";
-import { addToList } from "./defaultDisplay";
-import getSetLocal from "../functionJS/localStore";
-
 
 export default function buildForm () {
     if (localStorage.getItem('projects') === null) {
         let cats = [];
         localStorage.setItem('projects', JSON.stringify(cats))
-        console.log("makeCat")
-    } else {
-        console.log("duno")
-    }
+    } 
+
     const submitButton = newForm();
     submitButton.addEventListener('click', formSubmit)
 
@@ -70,25 +65,12 @@ function newForm() {
     listContainer.className = "listContainer";
     form.appendChild(listContainer);
 
-    //List input box
-    const thisIndex = new Date()
     const listInput = document.createElement('input');
     listInput.type = "text";
-    listInput.className = "listInput";
-    listInput.id = `${thisIndex}`
-    listInput.placeholder = "Add your first To-Do list";
+    listInput.className = "listInput1";
+    listInput.id = "listInput1";
+    listInput.placeholder = "Add your first To-Do list item";
     listContainer.appendChild(listInput);
-
-    //Add to list Button 
-    const todoButton = document.createElement('button');
-    todoButton.id = "todoButton1";
-    todoButton.className = "todoButton";
-    todoButton.type = "button";
-    todoButton.dataset.index = `${thisIndex}`
-    todoButton.textContent = `add`;
-    listContainer.appendChild(todoButton);
-    // Add Button Event Listener here
-    todoButton.addEventListener('click', updateList)
 
     const priorityContainer = document.createElement('div');
     priorityContainer.className = "priorityContainer";
@@ -129,11 +111,6 @@ function newForm() {
     submitButton.textContent = "add project";
     submitButtonDiv.appendChild(submitButton);
     return submitButton;
-}
-
-function updateList () {
-    let currentStorage = JSON.parse(localStorage.getItem('projects'));
-    console.log(currentStorage)
 }
 
 export function remakeAddButton () {

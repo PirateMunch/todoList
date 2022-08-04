@@ -230,9 +230,21 @@ ul {
 }
 
 .todoList>li {
+    position: relative;
     list-style-type:circle;
     font-size: 1.1rem;
     font-weight: 500;
+    margin-top: .8rem;
+}
+
+.deleteItem {
+    position: absolute;
+    right: 0;
+    font-size: 1.5rem;
+    padding: 0;
+    background: none;
+    color: red;
+    
 }
 
 .projectFoot {
@@ -242,7 +254,7 @@ ul {
 }
 
 .deleteButton {
-    background-color: var(--color-greenCucumb);
+    background: none;
 }
 
 .returnList {
@@ -250,7 +262,7 @@ ul {
 }
 
 .deleteButton>img {
-    width: 1rem;
+    width: 1.8rem;
 }
 
 /* Footer styles */

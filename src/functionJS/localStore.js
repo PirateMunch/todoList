@@ -13,18 +13,4 @@ export default function getSetLocal (thisProject) {
     localStorage.setItem('projects', JSON.stringify(currentStorage));
 };
 
-
-
-
-
-// export function saveLocalList (list) {
-//     let lists = JSON.parse(localStorage.getItem('projects'));
-//     const listIndex = list.children[1].innerText;
-
-//     for (let i = 0; i < lists.lentgh; i++) {
-//         if (lists[i] === listIndex) {
-//             lists[i] += '*';
-//         }
-//     }
-//     localStorage.setItem('projects', JSON.stringify(lists));
-// }
+export let projectArray = [];
