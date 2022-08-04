@@ -81,6 +81,22 @@ function newForm() {
     priorityDiv.className = "priorityDiv";
     form.appendChild(priorityDiv);
     
+    buildPrioritySlider(priorityDiv);
+
+    const submitButtonDiv = document.createElement('div');
+    submitButtonDiv.className = "submitButtonDiv";
+    form.appendChild(submitButtonDiv);
+    const submitButton = document.createElement('button');
+    submitButton.type = "button";
+    submitButton.id = "formSubmitButton";
+    submitButton.textContent = "add project";
+    submitButtonDiv.appendChild(submitButton);
+    return submitButton;
+}
+
+export function buildPrioritySlider(priorityDiv) {
+
+    
     const priorityLabel = document.createElement('div');
     priorityLabel.className = "priorityLabel";
     priorityDiv.appendChild(priorityLabel);
@@ -101,16 +117,6 @@ function newForm() {
     priorityHigh.textContent = "high";
     priorityHigh.style.color = "red";
     priorityDiv.appendChild(priorityHigh);
-
-    const submitButtonDiv = document.createElement('div');
-    submitButtonDiv.className = "submitButtonDiv";
-    form.appendChild(submitButtonDiv);
-    const submitButton = document.createElement('button');
-    submitButton.type = "button";
-    submitButton.id = "formSubmitButton";
-    submitButton.textContent = "add project";
-    submitButtonDiv.appendChild(submitButton);
-    return submitButton;
 }
 
 export function remakeAddButton () {

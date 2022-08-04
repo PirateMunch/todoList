@@ -287,6 +287,24 @@ ul {
     margin-left: .1rem;
 }
 
+.sliderDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+}
+
+.sliderDiv>.priorityRange {
+    width: 40%;
+}
+
+.changeButton {
+    font-size: .9rem;
+    padding: .5rem 1rem;
+    background-color: white;
+
+}
+
 /* Footer styles */
 
 .clearLocal {

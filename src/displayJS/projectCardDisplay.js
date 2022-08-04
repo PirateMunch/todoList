@@ -1,4 +1,4 @@
-import { getSetLocal, deleteProject } from "../functionJS/localStore";
+import { getSetLocal, deleteProject, changePriority } from "../functionJS/localStore";
 import homeDisplay from "./homeDisplay";
 import { deleteSectionChildren } from "./buildForm";
 
@@ -57,18 +57,7 @@ export default function projectCardDisplay (project) {
     projectTitle.appendChild(todoList);   
     showList(project)
 
-    const levelPriority = project.priority
-    switch (levelPriority) {
-        case '1':
-            projectDiv.className = "lowP";
-            break;
-        case '2':
-            projectDiv.className = "midP";
-            break;
-        case '3':
-            projectDiv.className = "highP";
-            break;
-    };
+    setPriority(project, projectDiv);
 
     const todoDiv = document.createElement('div')
     todoDiv.className = "todoDiv";
@@ -95,38 +84,57 @@ export default function projectCardDisplay (project) {
         listInput.value = "";
     });
 
+    buildProjectFooter(project, hiddenDiv);
+};
+
+export function buildProjectFooter(project, hiddenDiv) {
     const projectFoot = document.createElement('div');
-    projectFoot.className = "projectFoot"
+    projectFoot.className = "projectFoot";
+    projectFoot.id = `${project.title + 5}`;
     hiddenDiv.appendChild(projectFoot);
 
     //Priority Button here
     const priorityButton = document.createElement('input');
     priorityButton.type = "button";
+    priorityButton.id = "priorityButton";
     priorityButton.className = "priorityButton";
     priorityButton.value = "Change priority";
     projectFoot.appendChild(priorityButton);
     //EventListener for Home Button
     priorityButton.addEventListener('click', () => {
-        //not needed now so test here
-        // updateList(project);
-        
+        changePriority(project);
     });
 
     //Delete button logic and create --
     const deleteButton = document.createElement("button");
     deleteButton.className = "deleteButton";
     deleteButton.dataset.delete = "delete";
-    deleteButton.id = `${project.index}`
+    deleteButton.id = `${project.index}`;
     const deleteImg = '<img src="delete1.svg">';
     deleteButton.innerHTML = deleteImg;
     projectFoot.appendChild(deleteButton);
     //EventListener for delete buttons.
     deleteButton.addEventListener('click', () => {
-        deleteProject(project)
-        deleteSectionChildren()
-        homeDisplay()
+        deleteProject(project);
+        deleteSectionChildren();
+        homeDisplay();
     });
-};
+}
+
+export function setPriority(project, projectDiv) {
+    const levelPriority = project.priority;
+    switch (levelPriority) {
+        case '1':
+            projectDiv.className = "lowP";
+            break;
+        case '2':
+            projectDiv.className = "midP";
+            break;
+        case '3':
+            projectDiv.className = "highP";
+            break;
+    };
+}
 
 function toggleProjectDisplay () {
     let sibling = this.nextElementSibling

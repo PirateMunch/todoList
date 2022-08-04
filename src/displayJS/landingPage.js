@@ -5,8 +5,7 @@ export default function landingPage () {
         const section = document.getElementById('projectSection');
         const startPage = document.createElement('div');
         startPage.className = "startPage";
-        startPage.textContent = `No projects or lists found.
-        \nAdd a project to get started!`;
+        startPage.textContent = `No projects or lists found.\nAdd a project to get started!`;
         section.appendChild(startPage);
     } else {
         homeDisplay();
