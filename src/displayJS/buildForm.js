@@ -88,7 +88,7 @@ function newForm() {
     todoButton.textContent = `add`;
     listContainer.appendChild(todoButton);
     // Add Button Event Listener here
-    // todoButton.addEventListener('click', updateList)
+    todoButton.addEventListener('click', updateList)
 
     const priorityContainer = document.createElement('div');
     priorityContainer.className = "priorityContainer";
@@ -129,6 +129,11 @@ function newForm() {
     submitButton.textContent = "add project";
     submitButtonDiv.appendChild(submitButton);
     return submitButton;
+}
+
+function updateList () {
+    let currentStorage = JSON.parse(localStorage.getItem('projects'));
+    console.log(currentStorage)
 }
 
 export function remakeAddButton () {

@@ -1,4 +1,6 @@
 import getSetLocal from "../functionJS/localStore";
+import homeDisplay from "./homeDisplay";
+import { deleteSectionChildren } from "./buildForm";
 
 //Main default display function
 export default function defaultDisplay (project) {
@@ -54,7 +56,7 @@ export default function defaultDisplay (project) {
     todoList.style.fontWeight = "700"
     projectTitle.appendChild(todoList);   
 
-    // showList(project);
+    showList(project)
 
     const levelPriority = project.priority
     switch (levelPriority) {
@@ -93,8 +95,7 @@ export default function defaultDisplay (project) {
     todoButton.addEventListener('click', () => {
         addToList(project)
         listInput.value = "";
-        getSetLocal();
-    })
+    });
 
     const projectFoot = document.createElement('div');
     projectFoot.className = "projectFoot"
@@ -109,7 +110,8 @@ export default function defaultDisplay (project) {
     //EventListener for Home Button
     returnListButton.addEventListener('click', () => {
         //not needed now so test here
-        console.log("somin")
+        // updateList(project);
+        
     });
 
     //Delete button logic and create --
@@ -121,10 +123,11 @@ export default function defaultDisplay (project) {
     deleteButton.innerHTML = deleteImg;
     projectFoot.appendChild(deleteButton);
     //EventListener for delete buttons.
-    const deleteButtons = document.querySelectorAll('button[data-delete]');
-        for(const deleteButton of deleteButtons) {
-        // deleteButton.addEventListener('click', deleteBook)
-        };
+    deleteButton.addEventListener('click', () => {
+        deleteProject(project)
+        deleteSectionChildren()
+        homeDisplay()
+    });
 };
 
 function toggleProjectDisplay () {
@@ -136,7 +139,6 @@ function toggleProjectDisplay () {
         };
     };
 
-
 export function addToList (project) {
     const thisItem = document.getElementById(`${project.title+10}`);
     const thisList = document.getElementById(`${project.title}`);
@@ -144,23 +146,35 @@ export function addToList (project) {
     let projectList = project.list;
     newItem.textContent = thisItem.value;
     thisList.appendChild(newItem);
-    projectList.push(newItem);
-    
-    console.log(project.list);
+    projectList.push(newItem.textContent);
+    getSetLocal(project)
 };
 
-function showList (project) {
+function deleteProject (project) {
+    let currentStorage = JSON.parse(localStorage.getItem('projects'));
+        currentStorage.forEach((element) => {
+            if (element.title === project.title) {
+                let index = currentStorage.indexOf(element)
+                if (index > -1) {
+                    currentStorage.splice(index, 1)
+                }; 
+            } 
+        });
+    localStorage.setItem('projects', JSON.stringify(currentStorage));
+};
+
+export function showList (project) {
     const list = project.list;
     const thisList = document.getElementById(`${project.title}`);
-    let newItem = document.createElement('li');
-    if (list.lentgh !== 0) {
         list.forEach(element => {
+            let newItem = document.createElement('li');     
+            console.log(element);
             newItem.textContent = element;
             thisList.appendChild(newItem);
-            list.push(newItem);
          });
-    }
 };
+
+
  
 // function deleteBook () {
 //     localStorage.clear();

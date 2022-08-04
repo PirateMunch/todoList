@@ -1,28 +1,21 @@
 export default function getSetLocal (thisProject) {
-    let thisStorage = localStorage.getItem('projects');
-    let currentStorage = JSON.parse(thisStorage);
-    console.log(currentStorage)
+    let currentStorage = JSON.parse(localStorage.getItem('projects'));
+    // Stop duplicates when updated lists
+    currentStorage.forEach((element) => {
+        if (element.title === thisProject.title) {
+            let index = currentStorage.indexOf(element)
+            if (index > -1) {
+                currentStorage.splice(index, 1)
+            }; 
+        };
+    })
     currentStorage.push(thisProject);
-    
     localStorage.setItem('projects', JSON.stringify(currentStorage));
-    console.log(currentStorage)
 };
 
-export function showList (project) {
-    let thisStorage = localStorage.getItem('projects');
-    let currentStorage = JSON.parse(thisStorage);
-    let project = this.project
-    const list = project.list;
-    const thisList = document.getElementById(`${project.title}`);
-    let newItem = document.createElement('li');
-    if (list.lentgh !== 0) {
-        list.forEach(element => {
-            newItem.textContent = element;
-            thisList.appendChild(newItem);
-            list.push(newItem);
-         });
-    }
-};
+
+
+
 
 // export function saveLocalList (list) {
 //     let lists = JSON.parse(localStorage.getItem('projects'));
