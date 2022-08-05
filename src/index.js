@@ -1,6 +1,5 @@
-
+import sortMenuBurger from "./displayJS/sortMenu";
 import buildForm from "./displayJS/buildForm";
-import homeDisplay from "./displayJS/homeDisplay";
 import landingPage from "./displayJS/landingPage";
 
 
@@ -16,6 +15,9 @@ clearLocal.addEventListener('click', () => {
 
 //burger menu tests
 const burger = document.getElementById('burger');
-burger.addEventListener('click', homeDisplay); 
+burger.addEventListener('click', () => {
+    console.log("burgers yo")
+    sortMenuBurger()
+}); 
 
 window.onload = landingPage();
