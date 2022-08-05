@@ -49,7 +49,7 @@ export default function projectCardDisplay (project) {
     projectTitle.appendChild(listDueDate);
 
     const todoList = document.createElement('ul');
-    todoList.id = `${project.title}`;
+    todoList.id = `${project.title+23}`;
     todoList.className = "todoList"
     todoList.textContent = "To-Do List"
     todoList.style.fontSize = "1.5rem"
@@ -148,8 +148,9 @@ function toggleProjectDisplay () {
 function addToList (project) {
     let projectList = project.list;
     const thisItem = document.getElementById(`${project.title+10}`);
-    const thisList = document.getElementById(`${project.title}`);
+    const thisList = document.getElementById(`${project.title+23}`);
     const newItem = document.createElement('li');
+    newItem.id = thisItem.value;
     newItem.textContent = thisItem.value;
 
     const deleteItem = document.createElement('button');
@@ -157,22 +158,24 @@ function addToList (project) {
     deleteItem.textContent = "X";
     deleteItem.className = "deleteItem";
 
-    // deleteItem.addEventListener('click', (e) => {
-    //     let listItem = e.target.parentNode;
-    //     
-    //     projectList.forEach((element) => {
-    //         if (element === listItem.textContent) {
-    //             let index = projectList.indexOf(element)
-    //             if (index > -1) {
-    //                 projectList.splice(index, 1)
-    //             }; 
-    //                     console.log("works?")
-    //             updateList(project);
-    //         } 
-    //         
-    //         thisList.removeChild(listItem);
-    //     });
-    // });
+    deleteItem.addEventListener('click', (e) => {
+        let listItem = e.target
+        
+        projectList.forEach((element) => {
+                console.log(element)
+            if (element === listItem.textContent) {
+                let index = projectList.indexOf(element)
+                if (index > -1) {
+                    projectList.splice(index, 1);
+                    saveProject(project);
+                }; 
+                        console.log("works?")
+                
+            } 
+            
+            /// remove e.target!!!  element.... fuckers
+        });
+    });
 
     projectList.push(newItem.textContent);
     thisList.appendChild(newItem);
@@ -183,7 +186,7 @@ function addToList (project) {
 
 function showList (project) {
     const list = project.list;
-    const thisList = document.getElementById(`${project.title}`);
+    const thisList = document.getElementById(`${project.title+23}`);
         list.forEach(element => {
             let newItem = document.createElement('li');    
             const deleteItem = document.createElement('button');
