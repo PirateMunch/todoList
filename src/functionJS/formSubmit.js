@@ -1,7 +1,7 @@
 import { ProjectClass } from "./projectClass";
 import { remakeAddButton } from "../displayJS/buildForm";
 import homeDisplay from "../displayJS/homeDisplay";
-import getSetLocal from "./localStore";
+import saveProject from "./saveDeleteProjects";
 
 function formSubmit () {
     const projectButton = document.getElementById('addProjectButton');
@@ -24,7 +24,7 @@ function formSubmit () {
     }
     const project = new ProjectClass (title, description, startDate, dueDate, priority, index, list);
     projectButton.textContent = "add project";
-    getSetLocal(project); 
+    saveProject(project); 
     section.replaceChildren();
     homeDisplay();
     remakeAddButton();

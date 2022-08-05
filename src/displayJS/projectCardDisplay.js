@@ -1,4 +1,4 @@
-import { getSetLocal, deleteProject, changePriority } from "../functionJS/localStore";
+import  saveProject, { deleteProject, changePriority } from "../functionJS/saveDeleteProjects";
 import homeDisplay from "./homeDisplay";
 import { deleteSectionChildren } from "./buildForm";
 
@@ -157,23 +157,28 @@ function addToList (project) {
     deleteItem.textContent = "X";
     deleteItem.className = "deleteItem";
 
-    deleteItem.addEventListener('click', (e) => {
-        let listItem = e.target.parentNode;
-        projectList.forEach((element) => {
-            if (element === listItem.textContent) {
-                let index = projectList.indexOf(element)
-                if (index > -1) {
-                    projectList.splice(index, 1)
-                }; 
-            } 
-        });
-        thisList.removeChild(listItem);
-    });
+    // deleteItem.addEventListener('click', (e) => {
+    //     let listItem = e.target.parentNode;
+    //     
+    //     projectList.forEach((element) => {
+    //         if (element === listItem.textContent) {
+    //             let index = projectList.indexOf(element)
+    //             if (index > -1) {
+    //                 projectList.splice(index, 1)
+    //             }; 
+    //                     console.log("works?")
+    //             updateList(project);
+    //         } 
+    //         
+    //         thisList.removeChild(listItem);
+    //     });
+    // });
 
+    projectList.push(newItem.textContent);
     thisList.appendChild(newItem);
     newItem.appendChild(deleteItem);
-    projectList.push(newItem.textContent);
-    getSetLocal(project)
+    saveProject(project)
+    
 };
 
 function showList (project) {
