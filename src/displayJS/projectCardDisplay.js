@@ -146,16 +146,29 @@ function toggleProjectDisplay () {
     };
 
 function addToList (project) {
+    let projectList = project.list;
     const thisItem = document.getElementById(`${project.title+10}`);
     const thisList = document.getElementById(`${project.title}`);
     const newItem = document.createElement('li');
-    let projectList = project.list;
     newItem.textContent = thisItem.value;
 
     const deleteItem = document.createElement('button');
     deleteItem.type = "button";
     deleteItem.textContent = "X";
     deleteItem.className = "deleteItem";
+
+    deleteItem.addEventListener('click', (e) => {
+        let listItem = e.target.parentNode;
+        projectList.forEach((element) => {
+            if (element === listItem.textContent) {
+                let index = projectList.indexOf(element)
+                if (index > -1) {
+                    projectList.splice(index, 1)
+                }; 
+            } 
+        });
+        thisList.removeChild(listItem);
+    });
 
     thisList.appendChild(newItem);
     newItem.appendChild(deleteItem);

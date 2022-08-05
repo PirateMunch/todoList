@@ -5,18 +5,17 @@ export default function buildForm () {
     if (localStorage.getItem('projects') === null) {
         let cats = [];
         localStorage.setItem('projects', JSON.stringify(cats))
-    } 
-
+    }; 
     const submitButton = newForm();
-    submitButton.addEventListener('click', formSubmit)
+    submitButton.addEventListener('click', formSubmit);
 
     const projectButton = document.getElementById('addProjectButton');
-    projectButton.textContent = "cancel form"
+    projectButton.textContent = "cancel form";
     projectButton.addEventListener('click', () => {
     deleteSectionChildren();
     homeDisplay();
     remakeAddButton();
-    })
+    });
 };
 
 function newForm() {
@@ -95,8 +94,6 @@ function newForm() {
 }
 
 export function buildPrioritySlider(priorityDiv) {
-
-    
     const priorityLabel = document.createElement('div');
     priorityLabel.className = "priorityLabel";
     priorityDiv.appendChild(priorityLabel);

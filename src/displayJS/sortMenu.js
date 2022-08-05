@@ -2,7 +2,7 @@ import { deleteSectionChildren } from "./buildForm";
 import homeDisplay from "./homeDisplay";
 
 const sortBy = document.getElementById('sortBy');
-sortBy.addEventListener('click', sortMenuBurger)
+sortBy.addEventListener('click', sortMenuBurger);
   
 const sortPriority = document.getElementById('sortPriority');
 sortPriority.addEventListener('click', sortByPriority)

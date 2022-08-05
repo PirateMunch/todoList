@@ -22,9 +22,9 @@ function formSubmit () {
     if (userList.value !== "") {
         list.push(userList.value);
     }
-    const thisProject = new ProjectClass (title, description, startDate, dueDate, priority, index, list);
+    const project = new ProjectClass (title, description, startDate, dueDate, priority, index, list);
     projectButton.textContent = "add project";
-    getSetLocal(thisProject); 
+    getSetLocal(project); 
     section.replaceChildren();
     homeDisplay();
     remakeAddButton();

@@ -1,18 +1,20 @@
 import { buildPrioritySlider } from "../displayJS/buildForm";
 import { setPriority, buildProjectFooter } from "../displayJS/projectCardDisplay";
 
-export default function getSetLocal (thisProject) {
+export default function getSetLocal (project) {
     let currentStorage = JSON.parse(localStorage.getItem('projects'));
     // Stop duplicates when updated lists
     currentStorage.forEach((element) => {
-        if (element.title === thisProject.title) {
+        if (element.title === project.title) {
             let index = currentStorage.indexOf(element)
             if (index > -1) {
                 currentStorage.splice(index, 1)
             }; 
+            return currentStorage
         };
+        return currentStorage
     })
-    currentStorage.push(thisProject);
+    currentStorage.push(project);
     localStorage.setItem('projects', JSON.stringify(currentStorage));
 };
 
