@@ -147,11 +147,11 @@ function toggleProjectDisplay () {
 
 function addToList (project) {
     let projectList = project.list;
-    const thisItem = document.getElementById(`${project.title+10}`);
-    const thisList = document.getElementById(`${project.title+23}`);
-    const newItem = document.createElement('li');
-    newItem.id = thisItem.value;
-    newItem.textContent = thisItem.value;
+    const thisItemInput = document.getElementById(`${project.title+10}`);
+    const thisListContainer = document.getElementById(`${project.title+23}`);
+    const newListItem = document.createElement('li');
+    newListItem.id = thisItemInput.value;
+    newListItem.textContent = thisItemInput.value;
 
     const deleteItem = document.createElement('button');
     deleteItem.type = "button";
@@ -159,43 +159,68 @@ function addToList (project) {
     deleteItem.className = "deleteItem";
 
     deleteItem.addEventListener('click', (e) => {
-        let listItem = e.target
+        let listItem = e.target.parentNode
         
         projectList.forEach((element) => {
-                console.log(element)
-            if (element === listItem.textContent) {
+            if (element === listItem.id) {
                 let index = projectList.indexOf(element)
                 if (index > -1) {
-                    projectList.splice(index, 1);
-                    saveProject(project);
+                    projectList.splice(index, 1); 
                 }; 
-                        console.log("works?")
-                
             } 
-            
-            /// remove e.target!!!  element.... fuckers
+            saveProject(project);
+        
         });
+            deleteListView (project);
+            showList(project);
     });
 
-    projectList.push(newItem.textContent);
-    thisList.appendChild(newItem);
-    newItem.appendChild(deleteItem);
+    projectList.push(newListItem.textContent);
+    thisListContainer.appendChild(newListItem);
+    newListItem.appendChild(deleteItem);
     saveProject(project)
     
 };
 
 function showList (project) {
     const list = project.list;
-    const thisList = document.getElementById(`${project.title+23}`);
+    const thisListContainer = document.getElementById(`${project.title+23}`);
         list.forEach(element => {
             let newItem = document.createElement('li');    
             const deleteItem = document.createElement('button');
             deleteItem.type = "button";
             deleteItem.textContent = "X";
             deleteItem.className = "deleteItem";
-            
+
+            //remake delete buttons
+            deleteItem.addEventListener('click', (e) => {
+                let listItem = e.target.parentNode
+                
+                list.forEach((element) => {
+                    if (element === listItem.id) {
+                        let index = list.indexOf(element)
+                        if (index > -1) {
+                            list.splice(index, 1); 
+                        }; 
+                    } 
+                    saveProject(project);
+                
+                });
+                    deleteListView (project);
+                    showList(project);
+            });
+            //end remake, new function maybe
             newItem.textContent = element;
-            thisList.appendChild(newItem);
+            thisListContainer.appendChild(newItem);
             newItem.appendChild(deleteItem);
          });
+};
+
+function deleteListView (project) {
+    const section = document.getElementById(`${project.title+23}`);
+    let child = section.lastElementChild;
+        while (child) {
+            section.removeChild(child);
+            child = section.lastElementChild;
+        };
 };
