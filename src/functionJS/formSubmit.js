@@ -12,16 +12,26 @@ function formSubmit () {
     const userPriority = document.getElementById('priorityRange');
     const userList = document.getElementById('listInput1');
     let uniqueID = uniqueIndex(); 
-    let title = userTitle.value;
+
     let description = userDescription.value;
     let startDate = formatDate(new Date());
     let dueDate = userDueDate.value;
     let priority = userPriority.value;
     let index = uniqueID;
+    let title; 
+        if (userTitle.value === "") {
+            if (userDueDate.value === "") {
+                title = `To-Do Item`;
+            } else {
+                title = `To-Do By ${userDueDate.value}`;
+            }
+        } else {
+            title = userTitle.value;
+        };
     let list = [];
-    if (userList.value !== "") {
-        list.push(userList.value);
-    }
+        if (userList.value !== "") {
+            list.push(userList.value);
+        };
     const project = new ProjectClass (title, description, startDate, dueDate, priority, index, list);
     projectButton.textContent = "add project";
     saveProject(project); 

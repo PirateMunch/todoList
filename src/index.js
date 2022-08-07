@@ -12,10 +12,15 @@ const sortMenu = document.getElementById('burger');
 sortMenu.addEventListener('click', sortMenuBurger); 
 
 const clearLocal = document.getElementById('clearLocal');
-clearLocal.addEventListener('click', () => {
-    localStorage.clear();
-    deleteSectionChildren()
-    landingPage();
+
+clearLocal.addEventListener('click', (e) => {
+    if (!confirm('Are you sure?')) {
+        e.preventDefault();
+    } else {
+        localStorage.clear();
+        deleteSectionChildren()
+        landingPage();
+    }
 })
 
 window.onload = landingPage();
