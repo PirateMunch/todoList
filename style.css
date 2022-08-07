@@ -85,14 +85,8 @@ main {
     justify-content: space-between;
 }
 
-.addProject {
-    width: 100%;
-    font-size: 1rem;
-    padding: .5rem;
-    padding-left: 1rem;
-    border-radius: 20px;
-    border-color: var(--color-blueCucumb);
-    margin-top: .4rem;
+.addProjectButton {
+    align-self: start;
 }
 
 button {
@@ -102,6 +96,8 @@ button {
     font-size: 1.1rem;
     padding: .5rem 1.5rem;
 }
+
+
 
 form>div {
     margin: 1.5rem 0;
