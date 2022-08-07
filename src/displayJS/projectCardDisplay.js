@@ -28,7 +28,7 @@ export default function projectCardDisplay (project) {
     projectHead.appendChild(listStartDate);
 
     const hiddenDiv = document.createElement('div');
-    hiddenDiv.id = `${project.index}`;
+    hiddenDiv.id = `${project.index+90}`;
     hiddenDiv.className = "hiddenDiv";
     projectDiv.appendChild(hiddenDiv);
 
@@ -85,22 +85,27 @@ export default function projectCardDisplay (project) {
         listInput.value = "";
     });
 
-    buildProjectFooter(project, hiddenDiv);
-};
-
-export function buildProjectFooter(project, hiddenDiv) {
     const projectFoot = document.createElement('div');
     projectFoot.className = "projectFoot";
     projectFoot.id = `${project.title + 5}`;
     hiddenDiv.appendChild(projectFoot);
 
+    buildProjectFooter(project, projectFoot);
+};
+
+export function buildProjectFooter(project, projectFoot) {
+
+    const footDiv = document.createElement('div');
+    footDiv.id = `${project.title+55}`;
+    projectFoot.appendChild(footDiv);
+    
     //Priority Button here
     const priorityButton = document.createElement('input');
     priorityButton.type = "button";
     priorityButton.id = "priorityButton";
     priorityButton.className = "priorityButton";
     priorityButton.value = "Change priority";
-    projectFoot.appendChild(priorityButton);
+    footDiv.appendChild(priorityButton);
     //EventListener for Home Button
     priorityButton.addEventListener('click', () => {
         changePriority(project);
@@ -113,7 +118,7 @@ export function buildProjectFooter(project, hiddenDiv) {
     deleteButton.id = `${project.index}`;
     const deleteImg = '<img src="delete1.svg">';
     deleteButton.innerHTML = deleteImg;
-    projectFoot.appendChild(deleteButton);
+    footDiv.appendChild(deleteButton);
     //EventListener for delete buttons.
     deleteButton.addEventListener('click', () => {
         deleteProject(project);
@@ -165,7 +170,6 @@ function addToList (project) {
     thisListContainer.appendChild(newListItem);
     newListItem.appendChild(deleteItem);
     saveProject(project)
-
 };
 
 function makeListButton(deleteItem, projectList, project) {
@@ -182,9 +186,7 @@ function makeListButton(deleteItem, projectList, project) {
             }
             saveProject(project);
             deleteListView(project);
-            console.log("this shit")
         });
-      
     });
 }
 
@@ -203,10 +205,8 @@ function showList (project) {
             thisListContainer.appendChild(newItem);
             newItem.appendChild(deleteItem);
 
-            makeListButton(deleteItem, list, project);
- 
+            makeListButton(deleteItem, list, project); 
          });
-
 };
 
 function deleteListView (project) {
