@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toDo List</title>
+    <title>toDo List Italian</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="./root/main.js"></script>
@@ -12,31 +12,30 @@
 <body>
     <header>
         <div class="headerDiv">
-            <h1>To-Do List</h1>
-            <a href="./italian.html" id="languageButton" class="languageButton uk"></a>
+            <h1 class="italyHeader">lista delle cose da fare</h1>
+            <a href="./index.html" id="languageButton" class="languageButton italy"></a>
         </div>
     </header>
     <main>
         <div class="formTitle" id="formTitle">
-            
              <nav class="topnav">
-                <a id="sortBy" class="active">Sort by</a>
+                <a id="sortBy" class="active italySortBy">Ordina per</a>
                 <!-- Navigation links (hidden by default) -->
                 <div id="burgerLinks">
-                <a id="sortPriority">priority</a>
-                <a id="sortStart">start date</a>
-                <a id="sortFinish">finish date</a>
+                <a id="sortPriority">priorità</a>
+                <a id="sortStart">data d'inizio</a>
+                <a id="sortFinish">data di fine</a>
                 </div>
                 <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                 <a id="burger" class="burgerIcon">
                 <i class="fa fa-bars"></i>
                 </a>
             </nav>
-            <button type="button" id="addProjectButton" class="addProjectButton">add project</button>
+            <button type="button" id="addProjectButton" class="addProjectButton italyButton">aggiungi un elenco</button>
         </div>
-        <input type="search" id="searchBar" class="searchBar" data-search placeholder="Search Projects and Lists">
+        <input type="search" id="searchBar" class="searchBar" data-search placeholder="ricerca progetti ed elenchi">
         <section id="projectSection" class="projectSection"></section>
-        <button type="button" id="clearLocal" class="clearLocal">Clear localStorage</button>
+        <button type="button" id="clearLocal" class="clearLocal">cancellare la memoria locale</button>
     </main>
 </body>
 </html>

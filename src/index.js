@@ -23,6 +23,11 @@ clearLocal.addEventListener('click', (e) => {
     }
 })
 
+const languageButton = document.getElementById('languageButton');
+languageButton.addEventListener('click', () => {
+    console.log("Yoo")
+})
+
 window.onload = landingPage();
 
 

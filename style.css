@@ -20,26 +20,52 @@ body {
 
 /* --- Header/nav styles --- */
 header {
-    font-size: 2.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6rem;
     min-height: 10rem;
     font-family: var(--font-headMain);
 }
 
-.headerDiv {
-    display: flex;
-    flex-direction: column;
-    margin: 0 2rem;
+h1 {
+    padding: .5rem
+    ;
 }
 
-.headerDiv > span {
-    align-self: center;
-    margin: 1.5rem;
+.languageButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 4rem;
+    margin: .8rem .8rem 0 0;
 }
 
-.subHead {
-    display: flex;
-    flex-direction: column;
+.uk {
+    background-image: url(./icons8-great-britain-100.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 2.5rem;
 }
+
+.italy {
+    background-image: url(./icons8-italy-100.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 2.5rem; 
+}
+
+.italyHeader {
+    text-align: center;
+}
+
+.italyButton {
+    font-size: 1rem;
+    padding: .7rem;
+}
+
+
 
 .searchBar {
     height: fit-content;
@@ -67,7 +93,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: .5rem 2rem;
+    margin: 0 2rem .5rem 2rem;
 }
 
 .startPage {
@@ -96,8 +122,6 @@ button {
     font-size: 1.1rem;
     padding: .5rem 1.5rem;
 }
-
-
 
 form>div {
     margin: 1.5rem 0;
@@ -347,7 +371,7 @@ footer {
     font-size: 1.1rem;
     font-family: var(--font-headSub);
     display: block;
-    padding-left: 1.8rem;
+    padding-left: 1.2rem;
   }
   
   /* Style the hamburger menu */
@@ -371,3 +395,4 @@ footer {
     background-color: var(--color-blueCucumb);
     color: black; 
   }
+  
