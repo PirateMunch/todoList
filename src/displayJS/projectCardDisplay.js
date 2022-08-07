@@ -55,6 +55,7 @@ export default function projectCardDisplay (project) {
     todoList.style.fontSize = "1.5rem"
     todoList.style.fontWeight = "700"
     projectTitle.appendChild(todoList);   
+
     showList(project)
 
     setPriority(project, projectDiv);
@@ -158,29 +159,34 @@ function addToList (project) {
     deleteItem.textContent = "X";
     deleteItem.className = "deleteItem";
 
-    deleteItem.addEventListener('click', (e) => {
-        let listItem = e.target.parentNode
-        
-        projectList.forEach((element) => {
-            if (element === listItem.id) {
-                let index = projectList.indexOf(element)
-                if (index > -1) {
-                    projectList.splice(index, 1); 
-                }; 
-            } 
-            saveProject(project);
-        
-        });
-            deleteListView (project);
-            showList(project);
-    });
+    makeListButton(deleteItem, projectList, project);
 
     projectList.push(newListItem.textContent);
     thisListContainer.appendChild(newListItem);
     newListItem.appendChild(deleteItem);
     saveProject(project)
-    
+
 };
+
+function makeListButton(deleteItem, projectList, project) {
+    deleteItem.addEventListener('click', (e) => {
+        let listItem = e.target.parentNode;
+        projectList.forEach((element) => {
+            console.log(element)
+            console.log(listItem)
+            if (element === listItem.id) {
+                let index = projectList.indexOf(element);
+                if (index > -1) {
+                    projectList.splice(index, 1);
+                };
+            }
+            saveProject(project);
+            deleteListView(project);
+            console.log("this shit")
+        });
+      
+    });
+}
 
 function showList (project) {
     const list = project.list;
@@ -191,29 +197,16 @@ function showList (project) {
             deleteItem.type = "button";
             deleteItem.textContent = "X";
             deleteItem.className = "deleteItem";
-
-            //remake delete buttons
-            deleteItem.addEventListener('click', (e) => {
-                let listItem = e.target.parentNode
-                
-                list.forEach((element) => {
-                    if (element === listItem.id) {
-                        let index = list.indexOf(element)
-                        if (index > -1) {
-                            list.splice(index, 1); 
-                        }; 
-                    } 
-                    saveProject(project);
-                
-                });
-                    deleteListView (project);
-                    showList(project);
-            });
-            //end remake, new function maybe
+            deleteItem.dataset.data = "delete";
             newItem.textContent = element;
+            newItem.id = element;
             thisListContainer.appendChild(newItem);
             newItem.appendChild(deleteItem);
+
+            makeListButton(deleteItem, list, project);
+ 
          });
+
 };
 
 function deleteListView (project) {
@@ -223,4 +216,5 @@ function deleteListView (project) {
             section.removeChild(child);
             child = section.lastElementChild;
         };
+        showList(project);
 };
