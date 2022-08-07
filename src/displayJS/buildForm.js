@@ -8,7 +8,6 @@ export default function buildForm () {
     }; 
     const submitButton = newForm();
     submitButton.addEventListener('click', formSubmit);
-
     const projectButton = document.getElementById('addProjectButton');
     projectButton.textContent = "cancel form";
     projectButton.addEventListener('click', () => {

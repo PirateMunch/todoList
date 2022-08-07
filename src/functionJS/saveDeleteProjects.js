@@ -1,5 +1,5 @@
 import { buildPrioritySlider } from "../displayJS/buildForm";
-import projectCardDisplay, { setPriority, buildProjectFooter } from "../displayJS/projectCardDisplay";
+import { setPriority, buildProjectFooter } from "../displayJS/projectCardDisplay";
 
 export default function saveProject (project) {
     let currentStorage = JSON.parse(localStorage.getItem('projects'));
@@ -10,9 +10,7 @@ export default function saveProject (project) {
             if (index > -1) {
                 currentStorage.splice(index, 1)
             }; 
-            return currentStorage
         };
-        return currentStorage
     })
     currentStorage.push(project);
     localStorage.setItem('projects', JSON.stringify(currentStorage));

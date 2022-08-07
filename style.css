@@ -4,18 +4,11 @@
     --font-headMain: 'Gentium Book Basic', serif;
     --font-headSub: 'Nunito Sans', sans-serif;
     --font-regular: 'Pridi', serif;
-    --bg-rad-kale:  radial-gradient(circle, rgba(0,201,255,0.3) 0%, rgba(146,254,157,0.3) 100%);
     --bg-rad-retro: radial-gradient(circle, rgba(34,193,195,0.6) 0%, rgba(253,187,45,0.6) 100%);
-    --bg-rad-cucumb: radial-gradient(circle, rgb(217, 231, 255, 0.9) 0%, rgb(227, 255, 231, 0.9) 100%);
-    --bg-linG-kale: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-    --bg-linG-cucumb: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
-    --bg-linG-retro: linear-gradient(90deg, rgba(253, 187, 45, .4) 0%, rgba(34, 193, 195, .4) 100%);
-    --color-blueKale:  #00C9FF;
     --color-greenKale: #92FE9D;
     --color-greenCucumb: #e3ffe7;
     --color-blueCucumb: #d9e7ff;
-    --color-blueRetro: #22C1C3;
-    --color-orangeRetro: #FDBB2D;
+    --color-lightRed: rgba(204, 6, 15, 0.3);
 }
 
 body {
@@ -24,8 +17,8 @@ body {
     box-sizing: border-box;
     font-family: var(--font-regular);
 }
-/* --- Header/nav styles --- */
 
+/* --- Header/nav styles --- */
 header {
     font-size: 2.5rem;
     min-height: 10rem;
@@ -45,7 +38,7 @@ header {
 
 .subHead {
     display: flex;
-    gap: .5rem;
+    flex-direction: column;
 }
 
 .searchBar {
@@ -55,8 +48,11 @@ header {
     padding-left: 1rem;
     border-radius: 20px;
     border-color: var(--color-blueCucumb);
-    margin-top: .4rem;
     width: 100%;
+}
+
+.searchBar::placeholder {
+    text-align: center;
 }
 
 nav {
@@ -67,7 +63,6 @@ nav {
 }
 
 /* --- Main body styles --- */
-
 main {
     display: flex;
     flex-direction: column;
@@ -85,7 +80,6 @@ main {
 }
 
 /* ------------- Form styles ------------------------- */
-
 .formTitle {
     display: flex;
     justify-content: space-between;
@@ -154,7 +148,6 @@ input {
 }
 
 /* -------------- Project Display cards ------------ */
-
 .hiddenDiv {
     display: none;
 }
@@ -162,7 +155,9 @@ input {
 .projectName {
     font-size: 1.8rem;
     font-family: var(--font-headSub);
-    margin-left: 1rem;
+    margin-left: 2.2rem;
+    word-wrap: break-word;
+    margin-right: 5.5rem;
 }
 
 .projectHead {
@@ -177,6 +172,7 @@ input {
     font-size: .9rem;
     text-align: center;
     line-height: 1.1;
+    margin: .5rem .5rem 0 0;
 }
 
 ul {
@@ -188,7 +184,7 @@ ul {
 .listDescription {
     display: flex;
     justify-content: center;
-    /* overflow:scroll; */
+    margin-bottom: 1rem;
 }
 
 .todoDiv {
@@ -210,7 +206,7 @@ ul {
 }
 
 .highP {
-    background-color: rgba(204, 6, 15, 0.3);
+    background-color: var(--color-lightRed);
     border-radius: 20px;
     margin-bottom: 1rem;
 }
@@ -248,6 +244,7 @@ ul {
     font-size: 1.1rem;
     font-weight: 500;
     margin-top: .8rem;
+    word-wrap: break-word;
 }
 
 .deleteItem {
@@ -257,10 +254,9 @@ ul {
     padding: 0;
     background: none;
     color: red;
-    
 }
 
-.projectFoot {
+.footDiv {
     display: flex;
     justify-content: space-between;
     padding: .5rem;
@@ -285,6 +281,7 @@ ul {
     padding: .5rem 1.5rem;
     background-color: white;
     margin-left: .1rem;
+    background: var(--bg-rad-retro);
 }
 
 .sliderDiv {
@@ -306,11 +303,11 @@ ul {
 }
 
 /* Footer styles */
-
 .clearLocal {
     align-self: center;
     bottom: 2rem;
     margin-top: 2rem;
+    background-color: var(--color-lightRed);
 }
 
 footer {
@@ -327,24 +324,16 @@ footer {
     align-self: center;
 }
 
-.addTaskButton {
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 2.5rem;
-    padding: .2rem;
-    background-color: var(--color-blueRetro);
-    border: none;
-    margin-bottom: 2rem;
+/* --- search hide divs ---*/
+.hideSearch {
+    display: none;
 }
 
-
 /* --- burger menu CSS */
-
 /* Style the navigation menu */
 .topnav {
     overflow: hidden;
     background-color: var(--color-blueCucumb);
-    /* margin: 1rem 1rem 0 0; */
     position: relative;
     border-radius: 20px;
   }
@@ -360,6 +349,7 @@ footer {
     padding: .5rem 1rem;
     text-decoration: none;
     font-size: 1.1rem;
+    font-family: var(--font-headSub);
     display: block;
     padding-left: 1.8rem;
   }
