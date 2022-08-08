@@ -4,8 +4,12 @@
     --font-headMain: 'Gentium Book Basic', serif;
     --font-headSub: 'Nunito Sans', sans-serif;
     --font-regular: 'Pridi', serif;
-    --bg-rad-retro: radial-gradient(circle, rgba(34,193,195,0.6) 0%, rgba(253,187,45,0.6) 100%);
-    --color-greenKale: #92FE9D;
+    --bg-rad-retro: radial-gradient(
+        circle,
+        rgba(34, 193, 195, 0.6) 0%,
+        rgba(253, 187, 45, 0.6) 100%
+    );
+    --color-greenKale: #92fe9d;
     --color-greenCucumb: #e3ffe7;
     --color-blueCucumb: #d9e7ff;
     --color-lightRed: rgba(204, 6, 15, 0.3);
@@ -30,8 +34,7 @@ header {
 }
 
 h1 {
-    padding: .5rem
-    ;
+    padding: 0.5rem;
 }
 
 .languageButton {
@@ -39,7 +42,7 @@ h1 {
     top: 0;
     right: 0;
     min-width: 4rem;
-    margin: .8rem .8rem 0 0;
+    margin: 0.8rem 0.8rem 0 0;
 }
 
 .uk {
@@ -53,7 +56,7 @@ h1 {
     background-image: url(./icons8-italy-100.png);
     background-size: cover;
     background-position: center;
-    min-height: 2.5rem; 
+    min-height: 2.5rem;
 }
 
 .italyHeader {
@@ -62,15 +65,13 @@ h1 {
 
 .italyButton {
     font-size: 1rem;
-    padding: .7rem;
+    padding: 0.7rem;
 }
-
-
 
 .searchBar {
     height: fit-content;
     font-size: 1rem;
-    padding: .5rem;
+    padding: 0.5rem;
     padding-left: 1rem;
     border-radius: 20px;
     border-color: var(--color-blueCucumb);
@@ -93,7 +94,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin: 0 2rem .5rem 2rem;
+    margin: 0 2rem 0.5rem 2rem;
 }
 
 .startPage {
@@ -120,21 +121,21 @@ button {
     background-color: var(--color-blueCucumb);
     border: none;
     font-size: 1.1rem;
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
 }
 
-form>div {
+form > div {
     margin: 1.5rem 0;
 }
 
 input {
     height: fit-content;
     font-size: 1rem;
-    padding: .5rem;
+    padding: 0.5rem;
     padding-left: 1rem;
     border-radius: 20px;
     border-color: var(--color-blueCucumb);
-    margin-top: .4rem;
+    margin-top: 0.4rem;
     width: 90%;
 }
 
@@ -182,23 +183,23 @@ input {
 
 .projectHead {
     position: relative;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
 }
 
 .startDate {
     position: absolute;
     right: 0;
     top: 0;
-    font-size: .9rem;
+    font-size: 0.9rem;
     text-align: center;
     line-height: 1.1;
-    margin: .5rem .5rem 0 0;
+    margin: 0.5rem 0.5rem 0 0;
 }
 
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0rem .5rem 1rem 1.2rem;
+    padding: 0rem 0.5rem 1rem 1.2rem;
 }
 
 .listDescription {
@@ -210,7 +211,7 @@ ul {
 .todoDiv {
     display: flex;
     justify-content: center;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
 }
 
 .lowP {
@@ -231,11 +232,12 @@ ul {
     margin-bottom: 1rem;
 }
 
-.todoDiv, .listContainer {
+.todoDiv,
+.listContainer {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0rem .5rem;
+    padding: 0rem 0.5rem;
 }
 
 .listInput {
@@ -258,12 +260,12 @@ ul {
     margin-top: 1rem;
 }
 
-.todoList>li {
+.todoList > li {
     position: relative;
-    list-style-type:circle;
+    list-style-type: circle;
     font-size: 1.1rem;
     font-weight: 500;
-    margin-top: .8rem;
+    margin-top: 0.8rem;
     word-wrap: break-word;
 }
 
@@ -279,7 +281,7 @@ ul {
 .footDiv {
     display: flex;
     justify-content: space-between;
-    padding: .5rem;
+    padding: 0.5rem;
 }
 
 .deleteButton {
@@ -290,7 +292,7 @@ ul {
     width: 50%;
 }
 
-.deleteButton>img {
+.deleteButton > img {
     width: 1.8rem;
 }
 
@@ -298,9 +300,9 @@ ul {
     display: flex;
     justify-content: center;
     width: fit-content;
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     background-color: white;
-    margin-left: .1rem;
+    margin-left: 0.1rem;
     background: var(--bg-rad-retro);
 }
 
@@ -308,18 +310,17 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem;
+    padding: 0.5rem;
 }
 
-.sliderDiv>.priorityRange {
+.sliderDiv > .priorityRange {
     width: 40%;
 }
 
 .changeButton {
-    font-size: .9rem;
-    padding: .5rem 1rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
     background-color: white;
-
 }
 
 /* Footer styles */
@@ -356,43 +357,42 @@ footer {
     background-color: var(--color-blueCucumb);
     position: relative;
     border-radius: 20px;
-  }
-  
-  /* Hide the links inside the navigation menu (except for logo/home) */
-  .topnav #burgerLinks {
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #burgerLinks {
     display: none;
-  }
-  
-  /* Style navigation menu links */
-  .topnav a {
+}
+
+/* Style navigation menu links */
+.topnav a {
     color: black;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     text-decoration: none;
     font-size: 1.1rem;
     font-family: var(--font-headSub);
     display: block;
     padding-left: 1.2rem;
-  }
-  
-  /* Style the hamburger menu */
-  .topnav a.burgerIcon {
+}
+
+/* Style the hamburger menu */
+.topnav a.burgerIcon {
     background: var(--color-greenKale);
     display: block;
     position: absolute;
     right: 0;
     top: 0;
     border-bottom-left-radius: 20px;
-  }
-  
-  /* Add a grey background color on mouse-over */
-  .topnav a:hover {
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
     background-color: var(--color-greenCucumb);
     color: black;
-  }
-  
-  /* Style the active link (or home/logo) */
-  .active {
+}
+
+/* Style the active link (or home/logo) */
+.active {
     background-color: var(--color-blueCucumb);
-    color: black; 
-  }
-  
+    color: black;
+}
